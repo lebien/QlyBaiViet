@@ -1,0 +1,29 @@
+@charset "utf-8";
+.container-fluid{
+	background-color: black;
+}
+.image{
+	height: 230px !important;
+	max-width: 200%;
+}
+.thumbnail{
+	height: 370px;
+}
+.content{
+	 background-color: bisque;
+     max-width:200px;
+     max-height:200px;
+     overflow: scroll;
+}
+.banner{
+	height: 100px;
+	width: 100%;
+}
+
+.font{
+	color: #F8F8FF;
+}
+.image-detail{
+	height: 500px;
+	width: 100%;
+}

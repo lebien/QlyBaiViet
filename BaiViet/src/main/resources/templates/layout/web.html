@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+	<!-- Thẻ header -->
+
+	<!-- Thẻ nav-menu -->
+		<nav class="navbar navbar-inverse" th:fragment="nav-menu">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<p class="navbar-brand">Báo mới</p>
+				</div>
+				<ul class="nav navbar-nav">
+					<li ><a th:href="@{/home/}" class="font">Trang chủ</a></li>
+					<li ><a th:href="@{/home/about}" class="font">Giới thiệu</a></li>
+				</ul>
+				
+			</div>
+	</nav>
+	<!-- Thẻ aside -->
+	<div class="panel panel-default" th:fragment="aside1">
+  			<div class="panel-heading">TÌM KIẾM</div>
+  			<div class="panel-body" >
+	  			<form th:action="@{/home/search}" method="post">
+	  				<input th:value="${param.keywords}" name="keywords" class="form-control" placeholder="Keywords"/>
+	  			</form>
+			</div>
+	</div>
+	
+	<div class="panel panel-default" th:fragment="aside2">
+  		<div class="panel-heading">DANH MỤC</div>
+  		<div class="list-group" th:each="category : ${listCategory}">
+  			<a th:href="@{'/home/new/list-by-category/' +${category.id}}" class="list-group-item"  th:text="${category.name}"></a>
+		</div>
+	</div>
+</body>
+</html>

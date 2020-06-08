@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>List Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>	
+	<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="container">
+		 Logged user: <span sec:authentication="name"></span> <br/> 
+   		 Roles: <span sec:authentication="principal.authorities"></span>
+   		 <form action="#" th:action="@{/logout}" method="POST">
+        	<button type="submit">Logout</button>
+    	</form>
+		<h2>DANH SÁCH BÀI VIẾT</h2>
+		<p>
+			<a class="btn btn-primary" th:href="@{/admin/add}">ADD STAFF</a>
+		</p>
+		<table class="table table-bordered" >
+			<thead>
+				<tr>
+					<th>Photo</th>
+					<th>Title</th>
+					<th>Short Description</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item: ${list}">
+					<td width="100" >
+						<img alt="" th:src="@{'/getimage/' + ${item.image}}" width="200" height="200">
+					</td>
+					<td th:text="${item.title}" width="300"></td>
+					<td th:text="${item.description}" width="400"></td>
+					<td><a class="btn btn-primary btn-sm"
+						th:href="@{'/admin/edit/' + ${item.id}}">Edit</a> | <a
+						class="btn btn-danger btn-sm" th:href="@{'/admin/delete/' + ${item.id}}">Delete</a></td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

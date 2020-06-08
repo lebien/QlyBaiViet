@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:insert="~{layout/web :: head}">
+<title>BÁO ĐIỆN TỬ </title>
+</head>
+<body>
+	
+
+	<div class="container">
+	<!-- Thẻ header -->
+		<header class="row" >
+			<img alt="banner" src="/images/banner.jpg" class="banner">
+		</header>
+		<!-- thẻ nav -->
+		<nav class="row">
+			 <div th:insert="~{layout/web :: nav-menu}"></div>
+		</nav>
+		<!-- thẻ menu chính -->
+		<div class="row">
+			<article class="col-sm-9" layout:fragment="content">
+				
+			 </article>
+		<!-- Thẻ aside -->
+			<aside class="col-sm-3">
+				<div th:insert="~{layout/web :: aside1}"></div>
+				<div th:insert="~{layout/web :: aside2}">
+				</div>
+			</aside>
+		</div>
+		<!-- thẻ footer -->
+		<footer class="row" >
+			<p class="text-center">&Copy:2020. All rights reserved </p>
+				<p>
+					
+				</p>
+			
+		</footer>
+	</div>
+
+</body>
+</html>

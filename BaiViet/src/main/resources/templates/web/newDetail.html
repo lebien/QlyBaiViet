@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/index}">
+<head>
+<meta charset="utf-8">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<article layout:fragment="content">
+		<div th:object="${newDetail}">
+			<p th:text="*{title}"></p>
+			<img alt="" th:src="@{'/getimage/' + *{image}}" class="image-detail">
+			<p th:text="*{description}"></p>
+			<p th:text="*{content}"></p>
+		</div>
+	</article>
+</body>
+</html>
